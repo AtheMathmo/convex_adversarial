@@ -88,6 +88,19 @@ def mnist_model():
     )
     return model
 
+def mnist_fc():
+    model = nn.Sequential(
+        Flatten(),
+        nn.Linear(784, 1024),
+        nn.ReLU(),
+        nn.Linear(1024, 1024),
+        nn.ReLU(),
+        nn.Linear(1024, 1024),
+        nn.ReLU(),
+        nn.Linear(1024, 10)
+    )
+    return model
+
 def mnist_model_wide(k): 
     return model_wide(1, 7, k)
 

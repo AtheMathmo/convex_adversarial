@@ -33,6 +33,9 @@ def select_model(m):
         print("Using deep model with model_factor={}".format(args.model_factor))
         _, test_loader = pblm.mnist_loaders(64//(2**args.model_factor))
         model = pblm.mnist_model_deep(args.model_factor).cuda()
+    elif m == 'fc':
+        model = pblm.mnist_fc().cuda()
+        _, test_loader = pblm.mnist_loaders(8)
     else: 
         model = pblm.mnist_model().cuda() 
     return model
